@@ -1,0 +1,79 @@
+
+
+h1		{
+
+		color: darkgreen;
+		background-color: lightgreen;
+		text-align: center;
+		padding: 10px;
+		width: auto;
+		margin-top: 15%;
+		margin-bottom: 0px;
+		border-color: grey;
+		border-style: solid;
+		
+}
+
+body	{
+
+		background-image: url("background.jpg" );
+		background-repeat: no-repeat;
+		background-size: cover;
+		color: black;
+		width: 30%;
+		margin: auto;
+
+}
+
+form	{
+
+		background-color: whitesmoke;
+		opacity: 0.8;
+		margin: auto;
+		width: auto;
+
+}
+
+fieldset	{
+
+		margin: auto;
+		width: auto;
+}
+
+
+label	{
+
+		display: block;
+		float: left;
+		text-align: left;
+
+}
+
+input,select	{
+
+		display: block;
+		float: right;
+
+}
+
+div	{
+
+		opacity: 1;
+		width: 90%;
+		height: 5px;
+		margin:  auto;
+		background-color: darkgrey;
+
+}
+
+.boton_final	{
+		width: 10%;
+		margin: 5px;
+}
+
+#condiciones	{
+		display: block;
+		float: right;
+}
+
+

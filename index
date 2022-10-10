@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-witdh, initial-scale=1">
+	<title>AE-1 Carrito de la compra</title>
+	<script src="scripts/core.js"/></script>
+	<link rel="stylesheet" href="styles/template.css">
+</head>
+<body>
+	<h1>Formulario de compra</h1>
+	<form name="formulario" method="post" action="/send.php">
+  
+  		<fieldset>
+  			<br>
+  			<br>
+  			<label>Nombre articulo:</label>
+  			<input type="text" name="nombre_articulo" value="" />
+  			<br>
+  			<br>
+  			<label>Precio articulo:</label>
+  			<input type="number" name="precio_articulo" value="" />
+  			<br>
+  			<br>
+  			<label>Unidades:</label>
+  			<input type="number" id="quantity" name="cantidad" size="4" min="1" max="10">
+  			<br>
+  			<br>
+ 			<input type="button" value="Añadir al carrito" onclick="añadir_carrito()"> 
+ 			<br>
+ 			<br>
+ 			<br>
+ 			<div class="separador"></div>
+ 			<br>
+ 			<br>
+ 			<br>
+ 			<label>Articulos en el carrito:</label>
+  			<input type="text" id="articulos_carrito" name="articulos_carrito">
+  			<br>
+  			<br>
+  			<label>Precio total del carrito:</label>
+  			<input type="text" id="precio_total" name="precio_total" size="6" min="0">
+  			<br>
+  			<br>
+  			<label>Forma de pago:</label>
+  			<select name="forma_de_pago">
+  				<option value="default">--Seleccione--</option>
+  				<option value="Efectivo">Efectivo</option>
+  				<option value="Tarjeta">Tarjeta</option>
+			</select>
+			<br>
+			<br>
+			<br>
+			<br>
+			<input type="checkbox" id="condiciones"> Acepto las condiciones de compra
+			<br>
+			<br>
+			<input type="submit" value="Enviar" class="boton_final" />
+
+			<input type="reset" value="Reset" class="boton_final"/>
+ 		</fieldset>
+  			
+	</form>
+</body>
+</html>
