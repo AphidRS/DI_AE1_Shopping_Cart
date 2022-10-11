@@ -8,6 +8,7 @@ var pvp;
 var cantidad;
 var totalCompra;
 var botonSumar;
+const cesta = [];
 
 // =========================== //
 // CARGA DE JS DESPUES DEL DOM //
@@ -30,6 +31,7 @@ function initVars() {
 	pvp = document.getElementById("pvp");
 	cantidad = document.getElementById("cantidad");
 	totalCompra = document.getElementById("totalCompra");
+	articulosCarrito = document.getElementById("articulosCarrito");
 	botonSumar = document.getElementById("botonSumar");
 	articulo.focus();
 
@@ -54,11 +56,18 @@ function sumarAlCarrito() {
 		var subtotal2
 		subtotal = totalCompra.value*1;
 		subtotal2 = parseInt(pvp.value*cantidad.value);
-		if (pvp.value > 0 && cantidad.value > 0){
+		if (pvp.value > 0 && cantidad.value > 0 && articulo.value != null){
+			for (var i = 0; i < cantidad.value; i++) {
+				cesta.push(articulo.value);
+			}
 			totalCompra.value = subtotal + subtotal2;
+			articulosCarrito.value = cesta;
 			console.log(subtotal);
 			console.log(subtotal2);
+			console.log(articulosCarrito.value);
 		}
 }
+
+
 
 

@@ -36,11 +36,11 @@
  			<br>
  			<br>
  			<label>Articulos en el carrito:</label>
-  			<input type="text" id="articulos_carrito">
+  			<input type="text" id="articulosCarrito" readonly="true">
   			<br>
   			<br>
   			<label>Precio total del carrito:</label>
-  			<input type="text" id="totalCompra" size="20" min="0">
+  			<input type="text" id="totalCompra" size="20" min="0" readonly="true">
   			<br>
   			<br>
   			<label>Forma de pago:</label>
@@ -58,7 +58,7 @@
 			<br>
 			<input type="submit" value="Enviar" class="boton_final" />
 
-			<input type="reset" value="Reset" class="boton_final"/>
+			<input type="reset" value="Reset" class="boton_final" id="botonReset" onclick="document.location.reload()" />
  		</fieldset>
   			
 	</form>
