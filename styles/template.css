@@ -28,7 +28,6 @@ body	{
 form	{
 
 		background-color: whitesmoke;
-		opacity: 0.8;
 		margin: auto;
 		width: auto;
 
@@ -67,7 +66,7 @@ div	{
 }
 
 .boton_final	{
-		width: 10%;
+		width: 80px;
 		margin: 5px;
 }
 
