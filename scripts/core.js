@@ -54,18 +54,28 @@ function setListeners() {
 function sumarAlCarrito() {
 		var subtotal;
 		var subtotal2
+
+		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
 		subtotal = totalCompra.value*1;
 		subtotal2 = parseInt(pvp.value*cantidad.value);
+
+		// Comprobamos que no hay campos a 0 y articulo no es nulo
 		if (pvp.value > 0 && cantidad.value > 0 && articulo.value != null){
+			
+			// Iteracion para introducir art. en array cesta 
 			for (var i = 0; i < cantidad.value; i++) {
 				cesta.push(articulo.value);
 			}
+			// Sumamos subtotal y totales y asignamos valor al campo totalCompra
 			totalCompra.value = subtotal + subtotal2;
 			articulosCarrito.value = cesta;
-			console.log(subtotal);
-			console.log(subtotal2);
-			console.log(articulosCarrito.value);
 		}
+
+		// Borramos valores y devolvemos foco a articulo
+		articulo.value = null;
+		pvp.value = null;
+		cantidad.value = 1;
+		articulo.focus();
 }
 
 
