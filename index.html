@@ -9,22 +9,26 @@
 	<link rel="stylesheet" href="styles/template.css">
 </head>
 <body>
-	<h1>Formulario de compra</h1>
+	<div class="grid-container">
+	<div class="grid-1">
+	
 	<form name="formulario" method="post" action="/send.php">
-  
+  		<h1>Formulario de compra</h1>
   		<fieldset>
   			<br>
   			<br>
   			<label>Nombre articulo:</label>
-  			<input type="text" id="articulo" name="nombre_articulo" value="" />
+  			<label id="faltaArticulo" class="warning">Articulo erroneo</label>
+  			<input type="text" id="articulo" name="articulo" value="null" />
   			<br>
   			<br>
   			<label>Precio articulo:</label>
-  			<input type="number" id="pvp" name="precio_articulo" min="0" />
+  			<label id="faltaPrecio" class="warning">Precio erroneo</label>
+  			<input type="number" id="pvp" name="pvp" size="10" min="0" value="0"/>
   			<br>
   			<br>
   			<label>Unidades:</label>
-  			<input type="number" id="cantidad" name="cantidad" size="4" min="1" max="10">
+  			<input type="number" id="cantidad" name="cantidad" size="4" min="1" max="10" value="1">
   			<br>
   			<br>
  			<input type="button" id="botonSumar" value="Añadir al carrito" onclick="sumarAlCarrito()">
@@ -40,7 +44,7 @@
   			<br>
   			<br>
   			<label>Precio total del carrito:</label>
-  			<input type="text" id="totalCompra" size="20" min="0" readonly="true">
+  			<input type="text" id="totalCompra" size="10" min="0" readonly="true">
   			<br>
   			<br>
   			<label>Forma de pago:</label>
@@ -62,5 +66,13 @@
  		</fieldset>
   			
 	</form>
+	</div>
+	<div class="grid-2">
+		<div class="conceptos">
+			<h2>ARTICULO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PVP</h2>
+		</div>
+		<p id="ticket"></p>
+	</div>
+
 </body>
 </html>
