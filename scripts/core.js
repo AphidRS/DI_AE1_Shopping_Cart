@@ -20,7 +20,6 @@ const cesta = [];
 window.addEventListener("load", ()=>{
 	
 	initVars();
-	setListeners();
 
 });
 
@@ -49,7 +48,9 @@ function initVars() {
 
 function setListeners() {
 
-	botonSumar.addEventListener("click",sumarAlCarrito());
+	botonSumar.addEventListener('click',sumarAlCarrito());
+	articulo.addEventListener('change',checkValues());
+	pvp.addEventListener('change',checkValues());
 
 }
 
@@ -58,55 +59,69 @@ function setListeners() {
 // ======================== //
 
 function sumarAlCarrito() {
-		var subtotal;
-		var subtotal2
+	var subtotal;
+	var subtotal2
+	/*checkValues();*/
+	if (checkValues()){
 
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
 		subtotal = totalCompra.value*1;
 		subtotal2 = parseInt(pvp.value*cantidad.value);
 
-		// Comprobamos que articulo no es nulo
-		if (articulo.value != null){
-
-			// Comprobamos que el pvp es mayor que 0
-			if (pvp.value > 0){
-
-				// Iteracion para introducir art. en array cesta 
-				for (var i = 0; i < cantidad.value; i++) {
-					cesta.push(articulo.value);
-				}
-				// Sumamos subtotal y totales y asignamos valor al campo totalCompra
-				totalCompra.value = subtotal + subtotal2;
-				articulosCarrito.value = cesta;
-				ticket.innerText = cesta;
-
-
-				// Borramos valores, quitamos warning y devolvemos foco a articulo
-				faltaArticulo.style.visibility = "hidden";
-				faltaPrecio.style.visibility = "hidden";
-				articulo.value = null;
-				pvp.value = "0";
-				cantidad.value = 1;
-				articulo.focus();
-
-			} else {
-
-				faltaPrecio.style.visibility = "visible";
-				pvp.value = 0;
-				pvp.focus();
-
-			}
-
-		} else {
-
-			faltaArticulo.style.visibility = "visible";
-			articulo.value = null;
-			articulo.focus();
-			articulo.style.border.color = "red";
+		// Iteracion para introducir art. en array cesta 
+		for (var i = 0; i < cantidad.value; i++) {
+			cesta.push(articulo.value);
 		}
+		// Sumamos subtotal y totales y asignamos valor al campo totalCompra
+		totalCompra.value = subtotal + subtotal2;
+		articulosCarrito.value = cesta;
+		ticket.innerText = cesta;
 
+		// Borramos valores, quitamos warning y devolvemos foco a articulo
+		faltaArticulo.style.visibility = "hidden";
+		faltaPrecio.style.visibility = "hidden";
+		articulo.value = "";
+		pvp.value = 0;
+		cantidad.value = 1;
+		articulo.focus();
+	} 
 }
 
 
+function checkValues() {
+		pattern = /[0-9]/;
+		text = articulo.value;
 
+		// Comprobamos que articulo no es nulo y que no es numerico sino 
+		// visibilizamos texto de error y reseteamos value y devolvemos foco a articulo
+		if (articulo.value == "" || text.search(pattern) == 0){
+			console.log("articulo mal");
+			faltaArticulo.style.visibility = "visible";
+			articulo.value = "";
+			articulo.focus();
+			articulo.style.border.color = "red";
+			setTimeout(restoreWarnings, 3000);
+			return false;
+		}
+
+		// Comprobamos que no es igual a 0 sino  
+		// vvisibilizamos texto de error y reseteamos value y devolvemos foco a precio
+		if (pvp.value == 0 ){
+			console.log("precio mal");
+			faltaPrecio.style.visibility = "visible";
+			pvp.value = 0;
+			pvp.focus();
+			setTimeout(restoreWarnings, 3000);
+			return false;
+
+		}
+	return true;
+}
+
+function restoreWarnings(){
+
+	faltaArticulo.style.visibility = "hidden";
+	faltaPrecio.style.visibility = "hidden";
+
+}
 

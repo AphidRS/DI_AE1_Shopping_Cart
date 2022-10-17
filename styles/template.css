@@ -14,22 +14,16 @@ body	{
 		background-repeat: no-repeat;
 		background-size: cover;
 		color: black;
-		width: 60%;
+		width: 70%;
 		margin: auto;
 
 }
 
 form	{
 
-		margin: auto;
-		width: auto;
-		
-
-}
-
-fieldset	{
-
+		padding: 8px;
 		background-color: whitesmoke;
+		border: 2px solid darkgreen;
 }
 
 h1		{
@@ -37,100 +31,11 @@ h1		{
 		color: darkgreen;
 		background-color: lightgreen;
 		text-align: center;
-		border: 2px solid grey;
-		padding: 5px;
+		border: 2px solid darkgreen;
+		padding: 4px;
 		margin-top: 0px;
 		margin-bottom: 0px;
 		
-}
-
-label	{
-
-		display: block;
-		float: left;
-		text-align: left;
-
-}
-
-input,select	{
-
-		display: block;
-		float: right;
-
-}
-
-.separador	{
-
-		width: 90%;
-		height: 5px;
-		margin:  auto;
-		background-color: darkgrey;
-
-}
-
-.boton_final	{
-		width: 80px;
-		margin: 5px;
-}
-
-#condiciones	{
-		display: block;
-		float: right;
-
-}
-
-#faltaArticulo	{
-
-		font-size: 12px;
-		color: red;
-		padding: 4px;
-		border: 1px solid red;
-		margin-left: 40px;
-		visibility: hidden;
-}
-
-#faltaPrecio	{
-
-		font-size: 12px;
-		color: red;
-		padding: 4px;
-		border: 1px solid red;
-		margin-left: 56px;
-		visibility: hidden;
-}
-
-
-.grid-container	{
-
-		display:  grid;
-		grid-template-columns: 1fr 1fr;
-		grid-gap: 5px;
-		width: 79%;
-		margin: auto;
-		margin-top: 7%;
-}
- 
-.grid-1	{
-
-		width: 500px;
-		opacity: 0.8;
-
-}
-
-.grid-2	{
-
-		width: 400px;
-		border: 3px dotted seagreen;
-		background-color: white;
-		opacity: 0.8;
-
-}
-
-.conceptos	{
-
-		height: 20px;
-		width: auto;
-
 }
 
 h2	{
@@ -145,6 +50,105 @@ h2	{
 		margin-top: 0px;
 		
 }
+
+label	{
+
+		display: inline-block;
+		position: absolute;
+		float: left;
+
+}
+
+input,select	{
+
+		display: inline-block;
+		position: relative;
+		float: right;
+}
+
+.separador	{
+
+		width: 90%;
+		height: 5px;
+		margin:  auto;
+		background-color: darkgrey;
+
+}
+
+.boton_final	{
+		width: 80px;
+		margin: 20px;
+		text-align: center;
+
+}
+
+#condiciones	{
+		display: block;
+		float: right;
+
+}
+
+#faltaArticulo	{
+
+		font-size: 12px;
+		color: red;
+		padding: 4px;
+		border: 1px solid red;
+		margin-left: 9%;
+		visibility: hidden;
+}
+
+#faltaPrecio	{
+
+		font-size: 12px;
+		color: red;
+		padding: 4px;
+		border: 1px solid red;
+		margin-left: 9%;
+		visibility: hidden;
+}
+
+
+.grid-container	{
+
+		display:  grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 5px;
+		width: 80%;
+		margin: auto;
+		margin-top: 7%;
+}
+ 
+.grid-1	{
+
+		width: 100%;
+		opacity: 0.8;
+
+}
+
+.grid-2	{
+
+		width: 100%;
+		border: 3px dotted seagreen;
+		background-color: white;
+		opacity: 0.8;
+
+}
+.botones	{
+
+		margin: auto;
+		width: 50%;
+
+}
+
+.conceptos	{
+
+		height: 20px;
+		width: auto;
+
+}
+
+
 
 
 

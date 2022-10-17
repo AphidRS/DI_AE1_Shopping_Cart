@@ -10,69 +10,65 @@
 </head>
 <body>
 	<div class="grid-container">
-	<div class="grid-1">
-	
-	<form name="formulario" method="post" action="/send.php">
-  		<h1>Formulario de compra</h1>
-  		<fieldset>
-  			<br>
-  			<br>
-  			<label>Nombre articulo:</label>
-  			<label id="faltaArticulo" class="warning">Articulo erroneo</label>
-  			<input type="text" id="articulo" name="articulo" value="null" />
-  			<br>
-  			<br>
-  			<label>Precio articulo:</label>
-  			<label id="faltaPrecio" class="warning">Precio erroneo</label>
-  			<input type="number" id="pvp" name="pvp" size="10" min="0" value="0"/>
-  			<br>
-  			<br>
-  			<label>Unidades:</label>
-  			<input type="number" id="cantidad" name="cantidad" size="4" min="1" max="10" value="1">
-  			<br>
-  			<br>
- 			<input type="button" id="botonSumar" value="Añadir al carrito" onclick="sumarAlCarrito()">
- 			<br>
- 			<br>
- 			<br>
- 			<div class="separador"></div>
- 			<br>
- 			<br>
- 			<br>
- 			<label>Articulos en el carrito:</label>
-  			<input type="text" id="articulosCarrito" readonly="true">
-  			<br>
-  			<br>
-  			<label>Precio total del carrito:</label>
-  			<input type="text" id="totalCompra" size="10" min="0" readonly="true">
-  			<br>
-  			<br>
-  			<label>Forma de pago:</label>
-  			<select name="forma_de_pago">
-  				<option value="default">--Seleccione--</option>
-  				<option value="Efectivo">Efectivo</option>
-  				<option value="Tarjeta">Tarjeta</option>
-			</select>
-			<br>
-			<br>
-			<br>
-			<br>
-			<input type="checkbox" id="condiciones"> Acepto las condiciones de compra --->
-			<br>
-			<br>
-			<input type="submit" value="Enviar" class="boton_final" />
-
-			<input type="reset" value="Reset" class="boton_final" id="botonReset" onclick="document.location.reload()" />
- 		</fieldset>
-  			
-	</form>
-	</div>
-	<div class="grid-2">
-		<div class="conceptos">
-			<h2>ARTICULO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PVP</h2>
+		<div class="grid-1">
+			<form name="formulario" method="post" action="/send.php">
+  				<h1>Formulario de compra</h1>
+  				<br>
+  				<br>
+  				<label>Nombre articulo:</label>
+  				<label id="faltaArticulo" class="warning">Articulo erroneo</label>
+  				<input type="text" id="articulo" name="articulo" size="15" value="">
+  				<br>
+  				<br>
+  				<label>Precio articulo:</label>
+  				<label id="faltaPrecio" class="warning">Precio erroneo</label>
+  				<input type="number" id="pvp" name="pvp" size="5" min="0" value="0">
+  				<br>
+  				<br>
+  				<label>Unidades:</label>
+  				<input type="number" id="cantidad" name="cantidad" size="5" min="1" max="10" value="1">
+  				<br>
+  				<br>
+ 				<input type="button" id="botonSumar" value="Añadir al carrito" onclick="sumarAlCarrito()">
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<div class="separador"></div>
+ 				<br>
+ 				<br>
+ 				<br>
+ 				<label>Articulos en el carrito:</label>
+  				<input type="text" id="articulosCarrito" size="15" readonly="true">
+  				<br>
+  				<br>
+  				<label>Precio total del carrito:</label>
+  				<input type="text" id="totalCompra" size="5" min="0" readonly="true">
+  				<br>
+  				<br>
+  				<label>Forma de pago:</label>
+  				<select name="forma_de_pago">
+  					<option value="default">--Seleccione--</option>
+  					<option value="Efectivo">Efectivo</option>
+  					<option value="Tarjeta">Tarjeta</option>
+				</select>
+				<br>
+				<br>
+				<br>
+				<br>
+				<input type="checkbox" id="condiciones">Acepto las condiciones de compra<br>
+				<br>
+			</form>
 		</div>
+		<div class="grid-2">
+			<div class="conceptos">
+				<h2>ARTICULO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PVP</h2>
+			</div>
 		<p id="ticket"></p>
+		</div>
 	</div>
-
+	<div class="botones">
+		<input type="submit" value="Enviar" class="boton_final" />	
+		<input type="reset" value="Reset" class="boton_final" id="botonReset" onclick="document.location.reload()" />
+	</div>
 </body>
 </html>
