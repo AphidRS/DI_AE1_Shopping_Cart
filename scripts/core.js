@@ -184,7 +184,7 @@ function opcionesPago (){
 
 	}
 
-	if (formaPago.value == "--Seleccione--") {
+	if (formaPago.value == "default") {
 
 		titularTarjetaLabel.style.visibility = "hidden";
 		titularTarjeta.style.visibility = "hidden";
