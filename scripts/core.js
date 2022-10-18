@@ -155,8 +155,7 @@ function restoreWarnings(){
 
 function opcionesPago (){
 
-
-	if (formaPago.value == "Efectivo"){
+	if (formaPago.value == "Efectivo") {
 
 		titularTarjetaLabel.style.visibility = "hidden";
 		titularTarjeta.style.visibility = "hidden";
@@ -164,27 +163,37 @@ function opcionesPago (){
 		numTarjeta.style.visibility = "hidden";
 		numTarjetaCvvLabel.style.visibility = "hidden";
 		numTarjetaCvv.style.visibility = "hidden";
-
 		efectivoLabel.style.visibility = "visible";
 		efectivo.style.visibility = "visible";
 		efectivo.value = totalCompra.value;
 		console.log("soy efectivo");
 
-	} else {
+	} 
+
+	if (formaPago.value == "Tarjeta") {
 
 		efectivoLabel.style.visibility = "hidden";
 		efectivo.style.visibility = "hidden";
-
 		titularTarjetaLabel.style.visibility = "visible";
 		titularTarjeta.style.visibility = "visible";
 		numTarjetaLabel.style.visibility = "visible";
 		numTarjeta.style.visibility = "visible";
 		numTarjetaCvvLabel.style.visibility = "visible";
 		numTarjetaCvv.style.visibility = "visible";
-
 		console.log("soy tarjeta");
 
 	}
 
+	if (formaPago.value == "--Seleccione--") {
+
+		titularTarjetaLabel.style.visibility = "hidden";
+		titularTarjeta.style.visibility = "hidden";
+		numTarjetaLabel.style.visibility = "hidden";
+		numTarjeta.style.visibility = "hidden";
+		numTarjetaCvvLabel.style.visibility = "hidden";
+		numTarjetaCvv.style.visibility = "hidden";
+		efectivoLabel.style.visibility = "hidden";
+		efectivo.style.visibility = "hidden";
+	}
 
 }
