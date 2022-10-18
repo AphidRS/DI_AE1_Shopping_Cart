@@ -10,6 +10,15 @@ var totalCompra;
 var botonSumar;
 var faltaArticulo;
 var faltaPrecio;
+var formaPago;
+var efectivoLabel;
+var efectivo;
+var titularTarjeta;
+var titularTarjetaLabel;
+var numTarjeta;
+var numTarjetaCvv;
+var numTarjetaLabel;
+var numTarjetaCvvLabel;
 var ticket;
 const cesta = [];
 
@@ -23,21 +32,42 @@ window.addEventListener("load", ()=>{
 
 });
 
-// =========================== //
-// INICIALIZAMOS LAS VARIABLES //
-// =========================== //
+// ============================ //
+// ASIGNACION VARIABLES DEL DOM //
+// ============================ //
 
 function initVars() {
 
+	// COMPRA
 	articulo = document.getElementById("articulo");
-	faltaArticulo = document.getElementById("faltaArticulo");
 	pvp = document.getElementById("pvp");
-	faltaPrecio = document.getElementById("faltaPrecio");
 	cantidad = document.getElementById("cantidad");
 	totalCompra = document.getElementById("totalCompra");
 	articulosCarrito = document.getElementById("articulosCarrito");
 	ticket = document.getElementById("ticket");
 	botonSumar = document.getElementById("botonSumar");
+
+
+	// FORMAS DE PAGO
+	formaPago = document.getElementById("formaPago");
+
+	efectivo = document.getElementById("efectivo");
+
+	titularTarjeta = document.getElementById("titularTarjeta");
+	numTarjeta = document.getElementById("numTarjeta");
+	numTarjetaCvv = document.getElementById("numTarjetaCvv");
+
+	efectivoLabel = document.getElementById("efectivoLabel");
+	titularTarjetaLabel = document.getElementById("titularTarjetaLabel");
+	numTarjetaLabel = document.getElementById("numTarjetaLabel");
+	numTarjetaCvvLabel = document.getElementById("numTarjetaCvvLabel");
+
+	// WARNINGS
+	faltaPrecio = document.getElementById("faltaPrecio");
+	faltaArticulo = document.getElementById("faltaArticulo");
+	faltaTarjeta = document.getElementById("faltaTarjeta");
+	faltaNumTarjeta = document.getElementById("faltaNumTarjeta");
+	faltaCvv = document.getElementById("faltaCvv");
 	articulo.focus();
 
 }
@@ -49,8 +79,7 @@ function initVars() {
 function setListeners() {
 
 	botonSumar.addEventListener('click',sumarAlCarrito());
-	articulo.addEventListener('change',checkValues());
-	pvp.addEventListener('change',checkValues());
+	formaPago.addEventListener('change',opcionesPago());
 
 }
 
@@ -61,7 +90,6 @@ function setListeners() {
 function sumarAlCarrito() {
 	var subtotal;
 	var subtotal2
-	/*checkValues();*/
 	if (checkValues()){
 
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
@@ -70,7 +98,7 @@ function sumarAlCarrito() {
 
 		// Iteracion para introducir art. en array cesta 
 		for (var i = 0; i < cantidad.value; i++) {
-			cesta.push(articulo.value);
+			cesta.push(articulo.value,cantidad.value,pvp.value);
 		}
 		// Sumamos subtotal y totales y asignamos valor al campo totalCompra
 		totalCompra.value = subtotal + subtotal2;
@@ -125,3 +153,38 @@ function restoreWarnings(){
 
 }
 
+function opcionesPago (){
+
+
+	if (formaPago.value == "Efectivo"){
+
+		titularTarjetaLabel.style.visibility = "hidden";
+		titularTarjeta.style.visibility = "hidden";
+		numTarjetaLabel.style.visibility = "hidden";
+		numTarjeta.style.visibility = "hidden";
+		numTarjetaCvvLabel.style.visibility = "hidden";
+		numTarjetaCvv.style.visibility = "hidden";
+
+		efectivoLabel.style.visibility = "visible";
+		efectivo.style.visibility = "visible";
+		efectivo.value = totalCompra.value;
+		console.log("soy efectivo");
+
+	} else {
+
+		efectivoLabel.style.visibility = "hidden";
+		efectivo.style.visibility = "hidden";
+
+		titularTarjetaLabel.style.visibility = "visible";
+		titularTarjeta.style.visibility = "visible";
+		numTarjetaLabel.style.visibility = "visible";
+		numTarjeta.style.visibility = "visible";
+		numTarjetaCvvLabel.style.visibility = "visible";
+		numTarjetaCvv.style.visibility = "visible";
+
+		console.log("soy tarjeta");
+
+	}
+
+
+}

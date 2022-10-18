@@ -46,15 +46,33 @@
   				<br>
   				<br>
   				<label>Forma de pago:</label>
-  				<select name="forma_de_pago">
+  				<select name="formaPago" id="formaPago" value="default" onchange="opcionesPago()">>
   					<option value="default">--Seleccione--</option>
   					<option value="Efectivo">Efectivo</option>
   					<option value="Tarjeta">Tarjeta</option>
 				</select>
 				<br>
 				<br>
+				<label class="cuadroPago" id="efectivoLabel">Importe efectivo:</label>
+  				<input type="number" id="efectivo" name="efectivo" size="5" readonly="true">
 				<br>
 				<br>
+				<label class="cuadroPago" id="titularTarjetaLabel">Titular tarjeta:</label>
+  				<label id="faltaTarjeta" class="warning">Datos invalidos</label>
+  				<input type="text" class="cuadroPago" id="titularTarjeta" name="titulartarjeta" size="15" value="">
+				<br>
+				<br>
+				<label class="cuadroPago" id="numTarjetaLabel">Numero tarjeta:</label>
+  				<label id="faltaNumTarjeta" class="warning">Tarjeta invalida</label>
+  				<input type="number" class="cuadroPago" id="numTarjeta" name="numTarjeta" size="15" value="">
+				<br>
+				<br>
+				<label class="cuadroPago" id="numTarjetaCvvLabel">CVV:</label>
+  				<label id="faltaCvv" class="warning">CVV invalido</label>
+  				<input type="number" class="cuadroPago" id="numTarjetaCvv" name="cvvTarjeta" size="5" value="">
+  				<br>
+  				<br>
+  				<br>
 				<input type="checkbox" id="condiciones">Acepto las condiciones de compra<br>
 				<br>
 			</form>
