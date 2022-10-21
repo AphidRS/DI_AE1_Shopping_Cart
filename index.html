@@ -73,20 +73,20 @@
   				<br>
   				<br>
   				<br>
-				<input type="checkbox" id="condiciones">Acepto las condiciones de compra<br>
+				<input type="checkbox" id="condiciones" onclick="condicionesOk()">Acepto las condiciones de compra<br>
 				<br>
 			</form>
 		</div>
 		<div class="grid-2">
-			<div class="conceptos">
-				<h2>ARTICULO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PVP</h2>
-			</div>
+			<!-- <div class="conceptos"> -->
+				<h2>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ARTICULO &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CTD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;PVP</h2>
+			<!--</div>-->
 		<p id="ticket"></p>
 		</div>
 	</div>
 	<div class="botones">
-		<input type="submit" value="Enviar" class="boton_final" />	
-		<input type="reset" value="Reset" class="boton_final" id="botonReset" onclick="document.location.reload()" />
+		<input type="button" value="Imprimir" id="botonImprimir" onclick="imprimir()"/>	
+		<input type="reset" value="Reset" id="botonReset" onclick="document.location.reload()" />
 	</div>
 </body>
 </html>

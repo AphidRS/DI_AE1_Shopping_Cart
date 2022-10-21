@@ -20,6 +20,8 @@ var numTarjetaCvv;
 var numTarjetaLabel;
 var numTarjetaCvvLabel;
 var ticket;
+var botonImprimir;
+var condiciones;
 const cesta = [];
 
 // =========================== //
@@ -45,18 +47,13 @@ function initVars() {
 	totalCompra = document.getElementById("totalCompra");
 	articulosCarrito = document.getElementById("articulosCarrito");
 	ticket = document.getElementById("ticket");
-	botonSumar = document.getElementById("botonSumar");
-
-
+	
 	// FORMAS DE PAGO
 	formaPago = document.getElementById("formaPago");
-
 	efectivo = document.getElementById("efectivo");
-
 	titularTarjeta = document.getElementById("titularTarjeta");
 	numTarjeta = document.getElementById("numTarjeta");
 	numTarjetaCvv = document.getElementById("numTarjetaCvv");
-
 	efectivoLabel = document.getElementById("efectivoLabel");
 	titularTarjetaLabel = document.getElementById("titularTarjetaLabel");
 	numTarjetaLabel = document.getElementById("numTarjetaLabel");
@@ -70,6 +67,11 @@ function initVars() {
 	faltaCvv = document.getElementById("faltaCvv");
 	articulo.focus();
 
+	// BOTONES Y CHECKBOX
+	botonSumar = document.getElementById("botonSumar");
+	botonImprimir = document.getElementById("botonImprimir");
+	condiciones = document.getElementById("condiciones");
+
 }
 
 // ====================== //
@@ -80,7 +82,8 @@ function setListeners() {
 
 	botonSumar.addEventListener('click',sumarAlCarrito());
 	formaPago.addEventListener('change',opcionesPago());
-
+	condiciones.addEventListener('change',condicionesOk());
+	botonImprimir.addEventListener('click', imprimir());
 }
 
 // ======================== //
@@ -89,7 +92,8 @@ function setListeners() {
 
 function sumarAlCarrito() {
 	var subtotal;
-	var subtotal2
+	var subtotal2;
+	var ticketFormato;
 	if (checkValues()){
 
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
@@ -103,7 +107,8 @@ function sumarAlCarrito() {
 		// Sumamos subtotal y totales y asignamos valor al campo totalCompra
 		totalCompra.value = subtotal + subtotal2;
 		articulosCarrito.value = cesta;
-		ticket.innerText = cesta;
+		ticketFormato = cesta + <br />;
+		ticket.innerText = ticketFormato;
 
 		// Borramos valores, quitamos warning y devolvemos foco a articulo
 		faltaArticulo.style.visibility = "hidden";
@@ -166,7 +171,6 @@ function opcionesPago (){
 		efectivoLabel.style.visibility = "visible";
 		efectivo.style.visibility = "visible";
 		efectivo.value = totalCompra.value;
-		console.log("soy efectivo");
 
 	} 
 
@@ -180,7 +184,6 @@ function opcionesPago (){
 		numTarjeta.style.visibility = "visible";
 		numTarjetaCvvLabel.style.visibility = "visible";
 		numTarjetaCvv.style.visibility = "visible";
-		console.log("soy tarjeta");
 
 	}
 
@@ -195,5 +198,23 @@ function opcionesPago (){
 		efectivoLabel.style.visibility = "hidden";
 		efectivo.style.visibility = "hidden";
 	}
+
+}
+
+function condicionesOk() {
+
+	if (condiciones.checked == true) {
+
+		botonImprimir.style.visibility = "visible";
+
+	} else {
+
+		botonImprimir.style.visibility = "hidden";
+	}
+}
+
+function imprimir() {
+
+	alert("Los articulos de mi carrito son : "+ cesta +" y el precio total es: " + totalCompra.value + " Forma de pago: " + formaPago.value)
 
 }
