@@ -44,7 +44,7 @@ window.addEventListener("load", ()=>{
 function initVars() {
 
 	// COMPRA
-	articulo = document.getElementById("articulo");
+	articulo = document.getElementById("articulo"); 
 	pvp = document.getElementById("pvp");
 	cantidad = document.getElementById("cantidad");
 	totalCompra = document.getElementById("totalCompra");
