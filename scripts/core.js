@@ -63,10 +63,6 @@ function initVars() {
 	numTarjetaLabel = document.getElementById("numTarjetaLabel");
 	numTarjetaCvvLabel = document.getElementById("numTarjetaCvvLabel");
 
-	condiciones = document.getElementById("condiciones");
-	botonImprimir = document.getElementById("botonImprimir");	
-	botonReset = document.getElementById("botonReset");
-
 	// WARNINGS
 	faltaPrecio = document.getElementById("faltaPrecio");
 	faltaArticulo = document.getElementById("faltaArticulo");
@@ -77,6 +73,7 @@ function initVars() {
 
 	// BOTONES Y CHECKBOX
 	botonSumar = document.getElementById("botonSumar");
+	botonReset = document.getElementById("botonReset");
 	botonImprimir = document.getElementById("botonImprimir");
 	condiciones = document.getElementById("condiciones");
 
@@ -274,7 +271,6 @@ function resetear(){
 	condiciones.checked = false;
 	botonImprimir.disabled = true;
 	formaPago.selectedIndex = 0;
-	
 	cesta.length = 0;	
 	articulo.focus();
 }
