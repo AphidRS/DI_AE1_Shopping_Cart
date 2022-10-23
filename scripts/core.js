@@ -108,6 +108,7 @@ function sumarAlCarrito() {
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
 		subtotal = totalCompra.value*1;
 		subtotal2 = parseFloat(articuloObject.pvp*articuloObject.cantidad);		
+		
 		// Sumamos subtotal y totales y asignamos valor al campo totalCompra
 		totalCompra.value = subtotal + subtotal2;
 
