@@ -276,7 +276,6 @@ function resetear(){
 	titularTarjeta.value = "";	
 	numTarjeta.value = "";
 	numTarjetaCvv.value = "";	
-	ticket.value = "";
 	condiciones.checked = false;
 	botonImprimir.disabled = true;
 	formaPago.selectedIndex = 0;
