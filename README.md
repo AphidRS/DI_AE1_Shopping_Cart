@@ -18,12 +18,12 @@
 
 ---
 
-**1.** Permite añadir articulos, precio y cantidades, utilizando el objeto de la clase articulo.
-**2.** Actualiza mediante un array los objetos añadidos y el precio total de la compra.
-**3.** Muestra un ticket detallando articulos, cantidades y precio en formato tabla de html creando objetos del DOM desde JS.
-**4.** Maneja los errores en la introduccion de datos si los hubiere informando al usuario y devolviendo el foco a la casilla afectada.
-**5.** Despliega los campos necesarios en funcion del metodo de pago elegido.
-**6.** Lanza dialogo mostrando un resumen de los detalles de la compra.
+1. Permite añadir articulos, precio y cantidades, utilizando el objeto de la clase articulo.
+2. Actualiza mediante un array los objetos añadidos y el precio total de la compra.
+3. Muestra un ticket detallando articulos, cantidades y precio en formato tabla de html creando objetos del DOM desde JS.
+4. Maneja los errores en la introduccion de datos si los hubiere informando al usuario y devolviendo el foco a la casilla afectada.
+5. Despliega los campos necesarios en funcion del metodo de pago elegido.
+6. Lanza dialogo mostrando un resumen de los detalles de la compra.
 
 ###  TASK ASSIGNMENT  ###
 
