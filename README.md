@@ -1,27 +1,33 @@
 
-## DESARROLLO DE INTERFACES ##
+# DESARROLLO DE INTERFACES #
 
 ## AE-1 SHOPPING CART ##
 
 [https://github.com/AphidRS/aphidrs.github.io]
 
-### ============== TEAM MEMBERS ============== ###
+###  TEAM MEMBERS  ###
+
+---
 
 - Álvaro Hernantes Antón
 - Daniel Ionut Fechete
 - Daniel Mendoza Castellano
 - Héctor José Tablado Sánchez
 
-### ============== PROJECT FEATURES ============== ###
+###  PROJECT FEATURES  ###
 
-1. Permite añadir articulos, precio y cantidades, utilizando el objeto de la clase articulo.
-2. Actualiza mediante un array los objetos añadidos y el precio total de la compra.
-3. Muestra un ticket detallando articulos, cantidades y precio en formato tabla de html creando objetos del DOM desde JS.
-4. Maneja los errores en la introduccion de datos si los hubiere informando al usuario y devolviendo el foco a la casilla afectada.
-5. Despliega los campos necesarios en funcion del metodo de pago elegido.
-6. Lanza dialogo mostrando un resumen de los detalles de la compra.
+---
 
-### ============== TASK ASSIGNMENT ============== ###
+**1.** Permite añadir articulos, precio y cantidades, utilizando el objeto de la clase articulo.
+**2.** Actualiza mediante un array los objetos añadidos y el precio total de la compra.
+**3.** Muestra un ticket detallando articulos, cantidades y precio en formato tabla de html creando objetos del DOM desde JS.
+**4.** Maneja los errores en la introduccion de datos si los hubiere informando al usuario y devolviendo el foco a la casilla afectada.
+**5.** Despliega los campos necesarios en funcion del metodo de pago elegido.
+**6.** Lanza dialogo mostrando un resumen de los detalles de la compra.
+
+###  TASK ASSIGNMENT  ###
+
+---
 
 Para la realización de la práctica hemos dividido las tareas en cada una de sus partes fundamentales:
 
@@ -37,7 +43,9 @@ Para la realización de la práctica hemos dividido las tareas en cada una de su
 - **Función imprimirAlert:** Daniel Mendoza.
 - **Función resetear:** Héctor.
 
-### ============== MAIN ISSUES ============== ###
+###  MAIN ISSUES  ###
+
+---
 
 Comenzamos realizando un analisis de los requerimientos y las metodologias
 conocidas para implementar todos los requerimientos. Comenzamos utilizando la estructura mas sencilla y sencilla posible, no obstante definiendo la primera funcion compleja en JS como es **"sumarAlCarrito()"** nos encontramos con diversas estructuras condicionales y llamadas a otras funciones.
@@ -48,7 +56,9 @@ Se han comentado todas las funciones para ayudar a comprender su uso, en el caso
 
 Hemos evitado por otro lado inyectar funciones de JS en el propio codigo HTML modificando siempre el DOM desde el fichero JS, como es el caso del **"botonReset"**.
 
-### ============== CONCLUSION ============== ###
+###  CONCLUSION  ###
+
+---
 
 En general ha supuesto un reto muy interesante para todos los integrantes
 del grupo, obligandonos a poner en comun los conocimientos del grupo para
