@@ -57,7 +57,6 @@ h2	{
 
 label	{
 		color: white;
-		display: inline-block;
 		position: absolute;
 		float: left;
 
@@ -65,7 +64,6 @@ label	{
 
 input,select	{
 
-		display: inline-block;
 		position: relative;
 		float: right;
 		border-radius: 5px;
