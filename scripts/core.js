@@ -202,7 +202,6 @@ function isNotPvpCorrectValue(){
 // Quitamos avisos de warnings
 function restoreWarnings(){
  
-	
 	faltaArticulo.style.visibility = "hidden";
 	faltaPrecio.style.visibility = "hidden";
 
@@ -211,7 +210,6 @@ function restoreWarnings(){
 // Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
 function opcionesPago (){
 
-	
 	if (formaPago.value == "Efectivo") {
 		titularTarjetaLabel.style.visibility = "hidden";
 		titularTarjeta.style.visibility = "hidden";
@@ -264,22 +262,9 @@ function imprimirAlert(){
 	}
 }
 
-// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
+// Recargamos para resetear variables y devolvemos foco a articulo
 function resetear(){
-	articulo.value = "";	
-	pvp.value = "0";
-	cantidad.value = "1";
-	articulosCarrito.value = "";
-	totalCompra.value = "";	
-	formaPago.value = "";	
-	efectivo.value = "";
-	titularTarjeta.value = "";	
-	numTarjeta.value = "";
-	numTarjetaCvv.value = "";	
-	condiciones.checked = false;
-	botonImprimir.disabled = true;
-	formaPago.selectedIndex = 0;
-	cesta.length = 0;	
+	location.reload(); 
 	articulo.focus();
 }
 
