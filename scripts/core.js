@@ -24,6 +24,7 @@ var ticket;
 var condiciones;
 var botonImprimir;
 var botonReset;
+var count = 0;
 const cesta = [];
 
 
@@ -50,18 +51,13 @@ function initVars() {
 	totalCompra = document.getElementById("totalCompra");
 	articulosCarrito = document.getElementById("articulosCarrito");
 	ticket = document.getElementById("ticket");
-	botonSumar = document.getElementById("botonSumar");
-
-
+	
 	// FORMAS DE PAGO
 	formaPago = document.getElementById("formaPago");
-
 	efectivo = document.getElementById("efectivo");
-
 	titularTarjeta = document.getElementById("titularTarjeta");
 	numTarjeta = document.getElementById("numTarjeta");
 	numTarjetaCvv = document.getElementById("numTarjetaCvv");
-
 	efectivoLabel = document.getElementById("efectivoLabel");
 	titularTarjetaLabel = document.getElementById("titularTarjetaLabel");
 	numTarjetaLabel = document.getElementById("numTarjetaLabel");
@@ -79,6 +75,11 @@ function initVars() {
 	faltaCvv = document.getElementById("faltaCvv");
 	articulo.focus();
 
+	// BOTONES Y CHECKBOX
+	botonSumar = document.getElementById("botonSumar");
+	botonImprimir = document.getElementById("botonImprimir");
+	condiciones = document.getElementById("condiciones");
+
 }
 
 // ====================== //
@@ -92,6 +93,7 @@ function setListeners() {
 	botonImprimir.addEventListener('click',imprimirAlert);
 	condiciones.addEventListener('click', aceptarCondiciones);
 	botonReset.addEventListener('click',resetear);
+
 }
 
 // ======================== //
@@ -104,7 +106,7 @@ function sumarAlCarrito() {
 	articulosCarrito.value = "";
 	var isChecked = checkValues();	
 	if (isChecked) {	
-		const articuloObject = new Articulo(articulo.value, pvp.value, cantidad.value);
+	const articuloObject = new Articulo(articulo.value, pvp.value, cantidad.value);
 				
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
 		subtotal = totalCompra.value*1;
@@ -122,7 +124,26 @@ function sumarAlCarrito() {
 			} else {
 				articulosCarrito.value = articulosCarrito.value + cesta[i].nombre + ", ";
 			} 
-		}				
+		}	
+		count+=1;
+		// Creamos objetos TR y TD para popular la tabla ticket, usamos un contador
+		var line = document.createElement("tr");
+		var field1 = document.createElement("td");
+		var field2 = document.createElement("td");
+		var field3 = document.createElement("td");
+		line.id = "id" + count;
+		field1.id = "id" + count;
+		count+=1;
+		field2.id = "id" + count;
+		count+=1;
+		field3.id = "id" + count;
+		field1.innerHTML = articulo.value;
+		field2.innerHTML = cantidad.value;
+		field3.innerHTML = pvp.value;
+		document.getElementById("tabla").append(line);
+		document.getElementById(line.id).append(field1);
+		document.getElementById(line.id).append(field2);
+		document.getElementById(line.id).append(field3);
 
 		// Borramos valores, quitamos warning y devolvemos foco a articulo
 		faltaArticulo.style.visibility = "hidden";
@@ -139,9 +160,6 @@ function Articulo(nombre, pvp, cantidad){
 	this.pvp = pvp;
 	this.cantidad = cantidad;
 		
-	/*articuloObject.nombre = articulo.value;
-	articuloObject.pvp = pvp.value;
-	articuloObject.cantidad = cantidad.value;*/
 }
 	
 	// Verificamos que se cumplan las condiciones, retornando true si ambas funciones lo son.
@@ -182,6 +200,8 @@ function isNotPvpCorrectValue(){
 }
 
 function restoreWarnings(){
+ 
+	// Quitamos avisos de warnings
 	faltaArticulo.style.visibility = "hidden";
 	faltaPrecio.style.visibility = "hidden";
 
@@ -189,6 +209,7 @@ function restoreWarnings(){
 
 function opcionesPago (){
 
+	// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
 	if (formaPago.value == "Efectivo") {
 		titularTarjetaLabel.style.visibility = "hidden";
 		titularTarjeta.style.visibility = "hidden";
@@ -199,7 +220,6 @@ function opcionesPago (){
 		efectivoLabel.style.visibility = "visible";
 		efectivo.style.visibility = "visible";
 		efectivo.value = totalCompra.value;
-		console.log("soy efectivo");
 
 	} else if (formaPago.value == "Tarjeta") {
 		efectivoLabel.style.visibility = "hidden";
@@ -210,7 +230,6 @@ function opcionesPago (){
 		numTarjeta.style.visibility = "visible";
 		numTarjetaCvvLabel.style.visibility = "visible";
 		numTarjetaCvv.style.visibility = "visible";
-		console.log("soy tarjeta");
 
 	} else {
 		titularTarjetaLabel.style.visibility = "hidden";
@@ -259,3 +278,4 @@ function resetear(){
 	cesta.length = 0;	
 	articulo.focus();
 }
+
