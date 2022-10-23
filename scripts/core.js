@@ -159,15 +159,17 @@ function Articulo(nombre, pvp, cantidad){
 		
 }
 	
-	// Verificamos que se cumplan las condiciones, retornando true si ambas funciones lo son.
+// Verificamos que se cumplan las condiciones, retornando true si ambas funciones lo son.
 function checkValues() {	
 	var areChecked = isArticuloNotEmptyAndNaN() && isNotPvpCorrectValue();	
 	return areChecked;
 }
 
+// Comprobamos que articulo no es nulo y que no es numerico sino 
+// visibilizamos texto de error y reseteamos value y devolvemos foco a articulo
 function isArticuloNotEmptyAndNaN(){
-	// Comprobamos que articulo no es nulo y que no es numerico sino 
-	// visibilizamos texto de error y reseteamos value y devolvemos foco a articulo
+
+
 	pattern = /[0-9]/;
 	text = articulo.value;
 	var isEmptyAndNaN = (text == "" || text.search(pattern) > -1);	
@@ -182,9 +184,11 @@ function isArticuloNotEmptyAndNaN(){
 	return !isEmptyAndNaN;
 }
 
+/* Comprobamos que no es igual a 0 sino  
+visibilizamos texto de error y reseteamos value y devolvemos foco a precio*/
 function isNotPvpCorrectValue(){
-	/* Comprobamos que no es igual a 0 sino  
-	visibilizamos texto de error y reseteamos value y devolvemos foco a precio*/
+
+
 	var isPvpCorrectValue = pvp.value > 0;
 	if (!isPvpCorrectValue){
 		console.log("precio mal");
@@ -196,17 +200,19 @@ function isNotPvpCorrectValue(){
 	return isPvpCorrectValue;
 }
 
+// Quitamos avisos de warnings
 function restoreWarnings(){
  
-	// Quitamos avisos de warnings
+	
 	faltaArticulo.style.visibility = "hidden";
 	faltaPrecio.style.visibility = "hidden";
 
 }
 
+// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
 function opcionesPago (){
 
-	// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
+	
 	if (formaPago.value == "Efectivo") {
 		titularTarjetaLabel.style.visibility = "hidden";
 		titularTarjeta.style.visibility = "hidden";
@@ -240,6 +246,7 @@ function opcionesPago (){
 	}
 }
 
+// Comprobamos si el check es true para activar el boton de imprimir
 function aceptarCondiciones(){
 	if (condiciones.checked){
 		botonImprimir.disabled = false;
@@ -248,6 +255,7 @@ function aceptarCondiciones(){
 	}
 }
 
+// Comprobamos si hay un medio de pago valido sino devolvemos dialogo de alert
 function imprimirAlert(){
 	if(formaPago.value == "Efectivo" || formaPago.value == "Tarjeta") {
 		alert("Los articulos de mi carrito son: " + articulosCarrito.value + " y el precio total es: " + totalCompra.value + " Forma de pago: " + formaPago.value);
@@ -256,6 +264,7 @@ function imprimirAlert(){
 	}
 }
 
+// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
 function resetear(){
 	articulo.value = "";	
 	pvp.value = "0";
