@@ -29,7 +29,7 @@
   				<input type="number" id="cantidad" name="cantidad" size="5" min="1" max="10" value="1">
   				<br>
   				<br>
- 				<input type="button" id="botonSumar" value="Añadir al carrito" onclick="sumarAlCarrito()">
+ 				<input type="button" id="botonSumar" value="Añadir al carrito">
  				<br>
  				<br>
  				<br>
@@ -46,15 +46,15 @@
   				<br>
   				<br>
   				<label>Forma de pago:</label>
-  				<select name="formaPago" id="formaPago" value="default" onchange="opcionesPago()">>
-  					<option value="default">--Seleccione--</option>
+  				<select name="formaPago" id="formaPago" value="default">
+  					<option value="default" selected>--Seleccione--</option>
   					<option value="Efectivo">Efectivo</option>
   					<option value="Tarjeta">Tarjeta</option>
 				</select>
 				<br>
 				<br>
 				<label class="cuadroPago" id="efectivoLabel">Importe efectivo:</label>
-  				<input type="number" id="efectivo" name="efectivo" size="5" readonly="true">
+  				<input class="cuadroPago" type="number" id="efectivo" name="efectivo" size="5" readonly="true">
 				<br>
 				<br>
 				<label class="cuadroPago" id="titularTarjetaLabel">Titular tarjeta:</label>
@@ -88,8 +88,8 @@
 		</div>
 	</div>
 	<div class="botones">
-		<input type="button" value="Imprimir" id="botonImprimir" onclick="imprimir()"/>	
-		<input type="reset" value="Reset" id="botonReset" onclick="document.location.reload()" />
+		<input type="submit" value="Imprimir" class="boton_final" id="botonImprimir" disabled/>	
+		<input type="reset" value="Restablecer" class="boton_final" id="botonReset"/>
 	</div>
 </body>
 </html>
