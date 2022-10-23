@@ -70,6 +70,7 @@ input,select	{
 		float: right;
 		border-radius: 5px;
 		color: black;
+		width: 120px;
 }
 
 table	{
@@ -105,6 +106,16 @@ vertical-align: middle;
 
 }
 
+#articulo, #articulosCarrito {
+
+		width: 200px;
+}
+
+#pvp, #cantidad, #totalCompra {
+
+	width: 50px;
+
+}
 
 #botonSumar		{
 
