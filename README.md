@@ -1,44 +1,60 @@
-# Shopping_cart
-Actividad 1 de Desarrollo de Interfaces DAM II 
 
-COMPONENTES:
+## DESARROLLO DE INTERFACES ##
 
-Álvaro Hernantes Antón
-Daniel Ionut Fechete
-Daniel Mendoza Castellano
-Héctor José Tablado Sánchez 
+## AE-1 SHOPPING CART ##
 
+[https://github.com/AphidRS/aphidrs.github.io]
 
-PROCESOS:
+### ============== TEAM MEMBERS ============== ###
+
+- Álvaro Hernantes Antón
+- Daniel Ionut Fechete
+- Daniel Mendoza Castellano
+- Héctor José Tablado Sánchez
+
+### ============== PROJECT FEATURES ============== ###
+
+1. Permite añadir articulos, precio y cantidades, utilizando el objeto de la clase articulo.
+2. Actualiza mediante un array los objetos añadidos y el precio total de la compra.
+3. Muestra un ticket detallando articulos, cantidades y precio en formato tabla de html creando objetos del DOM desde JS.
+4. Maneja los errores en la introduccion de datos si los hubiere informando al usuario y devolviendo el foco a la casilla afectada.
+5. Despliega los campos necesarios en funcion del metodo de pago elegido.
+6. Lanza dialogo mostrando un resumen de los detalles de la compra.
+
+### ============== TASK ASSIGNMENT ============== ###
 
 Para la realización de la práctica hemos dividido las tareas en cada una de sus partes fundamentales:
-- html y css: Álvaro.
-- Función sumarAlCarrito: Álvaro y Héctor
-- Función Articulo: Héctor
-- Función checkValues: Daniel Ionut y Héctor
-- Función isArticuloNotEmptyAndNaN: Daniel Ionut y Héctor
-- Función isNotPvpCorrectValue: Daniel Ionut y Héctor
-- Función restoreWarning: Álvaro y Daniel Mendoza
-- Función opcionesPago: Álvaro y Daniel Mendoza
-- Función aceptarCondiciones: Daniel Ionut
-- Función imprimirAlert: Daniel Mendoza
-- Función resetear: Héctor
 
+- **Html y Css:** Álvaro.
+- **Función sumarAlCarrito:** Álvaro y Héctor.
+- **Función Articulo:** Héctor.
+- **Función checkValues:** Daniel Ionut, Héctor y Alvaro.
+- **Función isArticuloNotEmptyAndNaN:** Daniel Ionut y Héctor.
+- **Función isNotPvpCorrectValue:** Daniel Ionut y Héctor.
+- **Función restoreWarning:** Álvaro y Daniel Mendoza.
+- **Función opcionesPago:** Álvaro y Daniel Mendoza.
+- **Función aceptarCondiciones:** Daniel Ionut.
+- **Función imprimirAlert:** Daniel Mendoza.
+- **Función resetear:** Héctor.
 
-SOLUCIONES:
+### ============== MAIN ISSUES ============== ###
 
-A la hora de plantear la práctica no hemos sido capaces de hacer una análisis lo suficientemente bueno como para que no hayan surgido nuevas funciones sobre la marcha. Con ellas hemos tratado de evitar, en la medida de lo posible, el código espagueti. Tal es el caso de checkValues, isArticuloNotEmptyAndNan y isNotPvpCorrectValue.
-Sin embargo, en sumarCarrito al final ha quedado una función más enrevesada de lo que queríamos ya que no hemos conseguido mantener la funcionalidad que deseábamos populando los datos en el div de la derecha de la página a la vez que introducíamos los datos en la cesta. Hemos puesto comentarios para tratar de facilitar la lectura del código.
+Comenzamos realizando un analisis de los requerimientos y las metodologias
+conocidas para implementar todos los requerimientos. Comenzamos utilizando la estructura mas sencilla y sencilla posible, no obstante definiendo la primera funcion compleja en JS como es **"sumarAlCarrito()"** nos encontramos con diversas estructuras condicionales y llamadas a otras funciones.
 
-Por otro lado, siempre que hemos podido, hemos intentado no inyectar funciones de javaScript en el código de html y, además, hemos evitado usar funcionalidades de html para hacer tareas que se podían hacer con javaScript, como en el caso del botón reset.
+Es el caso de **"checkValues()"** que hubo que refactorizar y extraer todas las tareas individuales como funciones sencillas fuera de la principal como **"isArticuloNotEmptyAndNaN()"** y **"isNotPvpCorrectValue()"** contribuyendo a un codigo mas limpio y facil de interpretar.
 
-En el caso del botón reset en vez de volver a cargar la página de nuevo hemos querido que se pongan los valores iniciales para aprender a economizar recursos en caso de que recargar la página y los datos asociados fuese más costoso que en este caso.
+Se han comentado todas las funciones para ayudar a comprender su uso, en el caso de la funcion **"sumarCarrito()"** esta incluida la logica para popular todos los articulos tambien en el "ticket" lateral incluido en la interfaz, aunque creemos que es posible individualizar mas ese codigo y extraerlo a otra funcion.
 
+Hemos evitado por otro lado inyectar funciones de JS en el propio codigo HTML modificando siempre el DOM desde el fichero JS, como es el caso del **"botonReset"**.
 
-CONCLUSIONES:
+### ============== CONCLUSION ============== ###
 
-En general la práctica nos ha parecido laboriosa por la cantidad de información nueva que hemos tenido que aplicar y aprender a manejar. 
-Hemos echado de menos saber plantear mejor los problemas para poder planificar mejor el trabajo y no llegar tan apurados a la entrega.
-Además, la falta de estrategias para evitar el código espagueti es una debilidad evidente en nuestra forma de trabajar ¿tal vez se podrían ver ejemplos en clase con los códigos que presentemos los alumnos en las prácticas?
+En general ha supuesto un reto muy interesante para todos los integrantes
+del grupo, obligandonos a poner en comun los conocimientos del grupo para
+buscar la solucion mas adecuada a cada problema.
 
-Por lo demás, valoramos muy positivamente que hayan aparecido en esta práctica casi todos los supuestos que hemos estudiado. De cara, no ya a aprobar el examen, si no al aprendizaje puro y duro ha resultado muy instructiva.
+Al ser un proyecto donde hemos trabajado de manera conjunta con pocos ficheros en GitHub hemos tenido que realizar algun Merge con bastantes conflictos, lo cual nos indica que debemos mejorar la comunicacion para
+saber en todo momento que partes del codigo estamos trabajando cada uno.
+
+Creemos que seria muy positivo para todos poder consultar y ver otros proyectos para enriquecer nuestros recursos de cara a futuros desafios y compartir nuestras experiencias. Ha resultado muy instructivo, tanto la fase de consulta de la documentacion como encontrar la manera de implementarlo en nuestro propio codigo.
