@@ -72,6 +72,30 @@ input,select	{
 		color: black;
 }
 
+table	{
+
+	column-width: 5px;
+	padding: 3px;
+	width: 100%;
+
+}
+
+tr	{
+
+	color: rgb(0, 0, 0);
+	background-color: rgb(179, 233, 179);
+	
+}
+
+td {
+height: 5px;
+width: 10px;
+color: black;
+background-color: white;
+text-align: center;
+vertical-align: middle;
+}
+
 .separador	{
 
 		width: 90%;
@@ -163,13 +187,8 @@ input,select	{
 
 }
 
-/*
-.conceptos	{
 
-		height: 20px;
-		width: auto;
-		text-align: center;
-}*/
+
 
 
 

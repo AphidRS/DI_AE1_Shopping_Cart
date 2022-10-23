@@ -22,6 +22,7 @@ var numTarjetaCvvLabel;
 var ticket;
 var botonImprimir;
 var condiciones;
+var count = 0;
 const cesta = [];
 
 // =========================== //
@@ -93,22 +94,39 @@ function setListeners() {
 function sumarAlCarrito() {
 	var subtotal;
 	var subtotal2;
-	var ticketFormato;
+
 	if (checkValues()){
 
+		count+=1;
 		// Convertimos valor de totalCompra a numero para evitar concatenacion de strings
 		subtotal = totalCompra.value*1;
 		subtotal2 = parseInt(pvp.value*cantidad.value);
 
-		// Iteracion para introducir art. en array cesta 
-		for (var i = 0; i < cantidad.value; i++) {
-			cesta.push(articulo.value,cantidad.value,pvp.value);
-		}
+		// Introducimos art. en array cesta 
+		cesta.push(articulo.value,cantidad.value,pvp.value);
+	
 		// Sumamos subtotal y totales y asignamos valor al campo totalCompra
 		totalCompra.value = subtotal + subtotal2;
 		articulosCarrito.value = cesta;
-		ticketFormato = cesta + <br />;
-		ticket.innerText = ticketFormato;
+
+		// Creamos objetos TR y TD para popular la tabla ticket, usamos un contador
+		var line = document.createElement("tr");
+		var field1 = document.createElement("td");
+		var field2 = document.createElement("td");
+		var field3 = document.createElement("td");
+		line.id = "id" + count;
+		field1.id = "id" + count;
+		count+=1;
+		field2.id = "id" + count;
+		count+=1;
+		field3.id = "id" + count;
+		field1.innerHTML = articulo.value;
+		field2.innerHTML = cantidad.value;
+		field3.innerHTML = pvp.value;
+		document.getElementById("tabla").append(line);
+		document.getElementById(line.id).append(field1);
+		document.getElementById(line.id).append(field2);
+		document.getElementById(line.id).append(field3);
 
 		// Borramos valores, quitamos warning y devolvemos foco a articulo
 		faltaArticulo.style.visibility = "hidden";
@@ -122,6 +140,8 @@ function sumarAlCarrito() {
 
 
 function checkValues() {
+
+		// Definomos patron numerico no admitido en el campo articulo
 		pattern = /[0-9]/;
 		text = articulo.value;
 
@@ -138,7 +158,7 @@ function checkValues() {
 		}
 
 		// Comprobamos que no es igual a 0 sino  
-		// vvisibilizamos texto de error y reseteamos value y devolvemos foco a precio
+		// visibilizamos texto de error y reseteamos value y devolvemos foco a precio
 		if (pvp.value == 0 ){
 			console.log("precio mal");
 			faltaPrecio.style.visibility = "visible";
@@ -152,7 +172,8 @@ function checkValues() {
 }
 
 function restoreWarnings(){
-
+ 
+	// Quitamos avisos de warnings
 	faltaArticulo.style.visibility = "hidden";
 	faltaPrecio.style.visibility = "hidden";
 
@@ -160,6 +181,7 @@ function restoreWarnings(){
 
 function opcionesPago (){
 
+	// Ocultamos o mostramos en funcion del medio de pago elegido, tambien se puede hacer con un "switch"
 	if (formaPago.value == "Efectivo") {
 
 		titularTarjetaLabel.style.visibility = "hidden";
@@ -203,6 +225,7 @@ function opcionesPago (){
 
 function condicionesOk() {
 
+	// Mostramos u ocultamos el boton imprimir si las condiciones estan checked
 	if (condiciones.checked == true) {
 
 		botonImprimir.style.visibility = "visible";
@@ -215,6 +238,7 @@ function condicionesOk() {
 
 function imprimir() {
 
+	// Dialogo final con los datos de la compra
 	alert("Los articulos de mi carrito son : "+ cesta +" y el precio total es: " + totalCompra.value + " Forma de pago: " + formaPago.value)
 
 }
