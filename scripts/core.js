@@ -168,8 +168,6 @@ function checkValues() {
 // Comprobamos que articulo no es nulo y que no es numerico sino 
 // visibilizamos texto de error y reseteamos value y devolvemos foco a articulo
 function isArticuloNotEmptyAndNaN(){
-
-
 	pattern = /[0-9]/;
 	text = articulo.value;
 	var isEmptyAndNaN = (text == "" || text.search(pattern) > -1);	
@@ -248,9 +246,10 @@ function opcionesPago (){
 
 // Comprobamos si el check es true para activar el boton de imprimir
 function aceptarCondiciones(){
+	
 	if (condiciones.checked){
 		botonImprimir.disabled = false;
-	} else{
+	} else {
 		botonImprimir.disabled = true;
 	}
 }
